@@ -22,7 +22,7 @@ interface QuoteFormProps {
 
 export function QuoteForm({ defaultPolicyType }: QuoteFormProps) {
   const [submitted, setSubmitted] = useState(false);
-  const initialPolicy: QuoteFormValues['policyType'] = isValidPolicy(defaultPolicyType ?? null)
+  const initialPolicy: PolicyTypeParam | undefined = isValidPolicy(defaultPolicyType ?? null)
     ? (defaultPolicyType as PolicyTypeParam)
     : undefined;
 
