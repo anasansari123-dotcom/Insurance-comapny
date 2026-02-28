@@ -1,13 +1,26 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Icon } from '@/components/ui/Icon';
 import { ContactForm } from '@/features/contact/ContactForm';
 import { CONTACT_INFO } from '@/utils/constants';
+import { IMAGES } from '@/utils/images';
 
 export function ContactContent() {
   return (
-    <div className="bg-[#0a0a0a]">
+    <div className="relative min-h-screen bg-[#0a0a0a]">
+      <div className="absolute inset-0">
+        <Image
+          src={IMAGES.contact}
+          alt="Modern office interior - Arambhya Financial Services contact"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority={false}
+        />
+        <div className="absolute inset-0 bg-[#0a0a0a]/85" />
+      </div>
       <section className="relative py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -39,11 +52,20 @@ export function ContactContent() {
                       {CONTACT_INFO.email}
                     </a>
                   </li>
-                  <li className="flex items-center gap-3">
-                    <Icon name="phone" size={20} className="shrink-0 text-[#c9a227]" />
-                    <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`} className="hover:text-[#c9a227] transition-colors">
-                      {CONTACT_INFO.phone}
-                    </a>
+                  <li className="flex flex-col gap-2">
+                    <span className="flex items-center gap-2 text-[#c9a227]">
+                      <Icon name="phone" size={20} className="shrink-0" />
+                      Phone
+                    </span>
+                    {CONTACT_INFO.phones.map((phone) => (
+                      <a
+                        key={phone}
+                        href={`tel:${phone.replace(/\s/g, '')}`}
+                        className="ml-7 hover:text-[#c9a227] transition-colors text-zinc-400"
+                      >
+                        {phone}
+                      </a>
+                    ))}
                   </li>
                   <li className="flex items-start gap-3">
                     <Icon name="map-pin" size={20} className="shrink-0 text-[#c9a227] mt-0.5" />
@@ -58,13 +80,28 @@ export function ContactContent() {
                 transition={{ delay: 0.2 }}
                 className="gold-border rounded-2xl overflow-hidden bg-[#0f0f0f] shadow-premium"
               >
-                <div className="aspect-video bg-[#1a1a1a] flex items-center justify-center text-zinc-500">
-                  <div className="text-center p-4">
-                    <Icon name="map-pin" size={48} className="mx-auto text-[#c9a227]/50" />
-                    <p className="mt-2 text-sm">Google Maps placeholder</p>
-                    <p className="text-xs">Replace with your map embed</p>
-                  </div>
+                <div className="aspect-video w-full">
+                  <iframe
+                    src={CONTACT_INFO.mapEmbedUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Arambhya Financial Services - Rajarhat, Kolkata location map"
+                    className="min-h-[280px] w-full"
+                  />
                 </div>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${CONTACT_INFO.coordinates.lat},${CONTACT_INFO.coordinates.lng}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 flex items-center justify-center gap-2 py-2 text-sm text-[#c9a227] hover:text-[#d4af37] transition-colors"
+                >
+                  <Icon name="map-pin" size={18} />
+                  Open in Google Maps
+                </a>
               </motion.div>
             </div>
             <div className="lg:col-span-3">

@@ -8,6 +8,8 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Contact', href: '/contact' },
 ];
 
+import { IMAGES } from './images';
+
 export const SERVICES: Service[] = [
   {
     id: 'life',
@@ -15,6 +17,7 @@ export const SERVICES: Service[] = [
     description: 'Protect your loved ones with comprehensive life coverage. Peace of mind for your family\'s future.',
     icon: 'shield-heart',
     href: '/quote?policy=life',
+    image: IMAGES.services.life,
   },
   {
     id: 'health',
@@ -22,6 +25,7 @@ export const SERVICES: Service[] = [
     description: 'Quality healthcare coverage for you and your family. Stay protected against medical expenses.',
     icon: 'heart-pulse',
     href: '/quote?policy=health',
+    image: IMAGES.services.health,
   },
   {
     id: 'motor',
@@ -29,6 +33,7 @@ export const SERVICES: Service[] = [
     description: 'Complete protection for your vehicles. Comprehensive and third-party policies available.',
     icon: 'car',
     href: '/quote?policy=motor',
+    image: IMAGES.services.motor,
   },
   {
     id: 'business',
@@ -36,6 +41,7 @@ export const SERVICES: Service[] = [
     description: 'Safeguard your enterprise with tailored business insurance solutions.',
     icon: 'building',
     href: '/quote?policy=business',
+    image: IMAGES.services.business,
   },
   {
     id: 'investment',
@@ -43,6 +49,7 @@ export const SERVICES: Service[] = [
     description: 'Grow your wealth with structured investment and savings plans for your goals.',
     icon: 'trending-up',
     href: '/quote?policy=investment',
+    image: IMAGES.services.investment,
   },
 ];
 
@@ -74,16 +81,19 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Rajesh Kumar',
     role: 'Business Owner',
     content: 'Arambhya helped me secure comprehensive business insurance. Professional, transparent, and truly caring about our needs.',
+    avatar: IMAGES.testimonials[0],
   },
   {
     name: 'Priya Sharma',
     role: 'Individual Policyholder',
     content: 'From quote to claim, the experience was seamless. I recommend Arambhya to everyone looking for reliable insurance.',
+    avatar: IMAGES.testimonials[1],
   },
   {
     name: 'Vikram Mehta',
     role: 'Family Plan Holder',
     content: 'Our family\'s health and life policies are with Arambhya. The advisors took time to explain every detail. Exceptional service.',
+    avatar: IMAGES.testimonials[2],
   },
 ];
 
@@ -112,6 +122,8 @@ export const POLICY_TYPES = [
 
 export const CONTACT_INFO = {
   email: 'contact@arambhyafinancial.com',
-  phone: '+91 1800 123 4567',
-  address: 'Arambhya Tower, Financial District, Mumbai 400001',
+  phones: ['+91 91136 61064', '+91 877 780 1221'],
+  address: 'JC2G+984 Rajarhat, Kolkata, West Bengal',
+  coordinates: { lat: 22.600889, lng: 88.425833 },
+  mapEmbedUrl: 'https://www.google.com/maps?q=22.600889,88.425833&z=16&output=embed',
 };

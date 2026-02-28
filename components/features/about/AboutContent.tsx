@@ -1,8 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Icon } from '@/components/ui/Icon';
 import { CORE_VALUES, TIMELINE } from '@/utils/constants';
+import { IMAGES } from '@/utils/images';
 import type { CoreValue as CoreValueType, TimelineItem } from '@/types';
 
 export function AboutContent() {
@@ -21,6 +23,24 @@ export function AboutContent() {
             <p className="mt-6 max-w-3xl mx-auto text-lg text-zinc-400">
               We are committed to securing your future with integrity, transparency, and excellence.
             </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 }}
+            className="mt-12 gold-border rounded-2xl overflow-hidden shadow-premium"
+          >
+            <div className="relative aspect-[21/9] sm:aspect-[3/1]">
+              <Image
+                src={IMAGES.about}
+                alt="Modern corporate office - Arambhya Financial Services headquarters and professional workspace"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 1280px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
           </motion.div>
 
           <motion.div
@@ -60,6 +80,66 @@ export function AboutContent() {
               responsibility.&rdquo;
             </p>
             <p className="mt-4 font-serif font-semibold text-white">— Founder, Arambhya Financial Services</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-20"
+          >
+            <h2 className="font-serif text-3xl font-semibold text-white text-center">
+              Our <span className="text-gold-gradient">Founders</span>
+            </h2>
+            <p className="mt-4 text-center text-zinc-400 max-w-2xl mx-auto">
+              The visionaries behind Arambhya Financial Services, committed to your financial security.
+            </p>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="gold-border rounded-2xl overflow-hidden bg-[#0f0f0f] shadow-premium text-center"
+              >
+                <div className="relative aspect-[3/4] w-full">
+                  <Image
+                    src="/sir.jpeg"
+                    alt="Abhinav Kumar - Co-Founder, Arambhya Financial Services"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-transparent to-transparent" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-serif text-xl font-semibold text-[#c9a227]">Abhinav Kumar</h3>
+                  <p className="mt-1 text-sm text-zinc-400">Co-Founder</p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="gold-border rounded-2xl overflow-hidden bg-[#0f0f0f] shadow-premium text-center"
+              >
+                <div className="relative aspect-[3/4] w-full">
+                  <Image
+                    src="/mam.jpeg"
+                    alt="Mamta Roy - Co-Founder, Arambhya Financial Services"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-transparent to-transparent" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-serif text-xl font-semibold text-[#c9a227]">Mamta Roy</h3>
+                  <p className="mt-1 text-sm text-zinc-400">Co-Founder</p>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
 
           <motion.div

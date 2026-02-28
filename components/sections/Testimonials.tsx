@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { TESTIMONIALS } from '@/utils/constants';
 import type { Testimonial as TestimonialType } from '@/types';
@@ -43,9 +44,21 @@ function TestimonialCard({ testimonial, index }: { testimonial: TestimonialType;
     >
       <p className="text-zinc-300">&ldquo;{testimonial.content}&rdquo;</p>
       <div className="mt-4 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(201,162,39,0.2)] font-serif font-semibold text-[#c9a227]">
-          {testimonial.name.charAt(0)}
-        </div>
+        {testimonial.avatar ? (
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-[#c9a227]/40 ring-2 ring-[#0a0a0a]">
+            <Image
+              src={testimonial.avatar}
+              alt={`${testimonial.name} - ${testimonial.role}`}
+              fill
+              className="object-cover"
+              sizes="48px"
+            />
+          </div>
+        ) : (
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(201,162,39,0.2)] font-serif text-lg font-semibold text-[#c9a227]">
+            {testimonial.name.charAt(0)}
+          </div>
+        )}
         <div>
           <p className="font-semibold text-white">{testimonial.name}</p>
           <p className="text-sm text-zinc-500">{testimonial.role}</p>

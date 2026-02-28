@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
@@ -73,20 +74,39 @@ function ServiceCard({ service }: { service: Service }) {
     <motion.div
       variants={item}
       whileHover={{ y: -4 }}
-      className="group gold-border rounded-xl bg-[#0a0a0a]/80 p-6 shadow-premium transition-all duration-300 hover:shadow-gold"
+      className="group gold-border rounded-xl overflow-hidden bg-[#0a0a0a]/80 shadow-premium transition-all duration-300 hover:shadow-gold"
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[rgba(201,162,39,0.15)] text-[#c9a227] transition-colors group-hover:bg-[rgba(201,162,39,0.25)]">
-        <Icon name={service.icon} size={24} />
+      {service.image && (
+        <div className="relative aspect-[16/10] w-full">
+          <Image
+            src={service.image}
+            alt={`${service.title} - ${service.description.slice(0, 50)}...`}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+          <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[rgba(201,162,39,0.2)] text-[#c9a227] backdrop-blur-sm">
+            <Icon name={service.icon} size={20} />
+          </div>
+        </div>
+      )}
+      <div className="p-6">
+        {!service.image && (
+          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[rgba(201,162,39,0.15)] text-[#c9a227] transition-colors group-hover:bg-[rgba(201,162,39,0.25)]">
+            <Icon name={service.icon} size={24} />
+          </div>
+        )}
+        <h3 className="mt-4 font-serif text-xl font-semibold text-white">{service.title}</h3>
+        <p className="mt-2 text-sm text-zinc-400">{service.description}</p>
+        <Link
+          href={service.href}
+          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#c9a227] transition-colors hover:text-[#d4af37]"
+        >
+          Learn More
+          <Icon name="chevron-right" size={16} />
+        </Link>
       </div>
-      <h3 className="mt-4 font-serif text-xl font-semibold text-white">{service.title}</h3>
-      <p className="mt-2 text-sm text-zinc-400">{service.description}</p>
-      <Link
-        href={service.href}
-        className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#c9a227] transition-colors hover:text-[#d4af37]"
-      >
-        Learn More
-        <Icon name="chevron-right" size={16} />
-      </Link>
     </motion.div>
   );
 }

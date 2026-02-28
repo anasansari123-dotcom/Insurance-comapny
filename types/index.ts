@@ -9,6 +9,7 @@ export type Service = {
   description: string;
   icon: string;
   href: string;
+  image?: string;
 };
 
 export type WhyUsItem = {
