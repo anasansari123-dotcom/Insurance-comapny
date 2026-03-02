@@ -29,24 +29,24 @@ export function Navbar() {
         isScrolled ? 'glass shadow-premium' : 'bg-transparent'
       }`}
     >
-      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
             src={LOGO_SRC}
             alt="Arambhya Financial Services"
             width={200}
             height={80}
-            className="h-14 w-auto object-contain sm:h-26 lg:h-26 absolute"
+            className="h-14 w-auto object-contain sm:h-16 lg:h-20"
             priority
           />
         </Link>
 
-        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 md:flex lg:gap-6">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group relative text-sm font-medium text-zinc-300 transition-colors hover:text-[#c9a227]"
+              className="group relative whitespace-nowrap text-sm font-medium text-zinc-300 transition-colors hover:text-[#c9a227]"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#c9a227] transition-transform duration-300 group-hover:scale-x-100" />

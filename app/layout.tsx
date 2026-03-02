@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 
 const cormorant = Cormorant_Garamond({
   weight: ['400', '500', '600', '700'],
@@ -39,11 +40,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${cormorant.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-[#0a0a0a] font-sans text-zinc-100 antialiased">
+    <html lang="en" className={`scroll-smooth ${cormorant.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen bg-[#0a0a0a] font-sans text-zinc-100 antialiased" suppressHydrationWarning>
         <Navbar />
         <main className="pt-[72px]">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

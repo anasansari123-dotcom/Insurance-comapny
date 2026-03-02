@@ -19,7 +19,7 @@ export function ServicesContent() {
             className="text-center"
           >
             <h1 className="font-serif text-4xl font-semibold text-white sm:text-5xl lg:text-6xl">
-              Our <span className="text-gold-gradient">Services</span>
+              Our <span className="text-gold-gradient">Insurance</span>
             </h1>
             <p className="mt-6 max-w-2xl mx-auto text-lg text-zinc-400">
               Comprehensive insurance and investment solutions tailored to your needs.

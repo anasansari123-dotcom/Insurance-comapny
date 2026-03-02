@@ -31,7 +31,7 @@ export function ServicesOverview() {
           className="text-center"
         >
           <h2 className="font-serif text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">
-            Our <span className="text-gold-gradient">Services</span>
+            Our <span className="text-gold-gradient">Insurance</span>
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-zinc-400">
             Comprehensive insurance and investment solutions to protect what matters most.

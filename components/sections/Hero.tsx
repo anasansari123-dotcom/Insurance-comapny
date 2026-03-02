@@ -1,30 +1,24 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { IMAGES } from '@/utils/images';
+
+const HERO_VIDEO_SRC = '/Arambhya_financial_services___add_the_company_name_7352f5ab8a.mp4';
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] overflow-hidden bg-[#0a0a0a]">
       <div className="absolute inset-0 min-h-[90vh]">
-        <motion.div
-          className="absolute inset-0 h-full w-full"
-          initial={{ scale: 1 }}
-          animate={{ scale: 1.08 }}
-          transition={{ duration: 20, ease: 'linear' }}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden
         >
-          <Image
-            src={IMAGES.hero}
-            alt="Financial advisor and family protection - secure your future with confidence"
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-            unoptimized
-          />
-        </motion.div>
+          <source src={HERO_VIDEO_SRC} type="video/mp4" />
+        </video>
       </div>
       <motion.div
         className="absolute inset-0 bg-black/70"

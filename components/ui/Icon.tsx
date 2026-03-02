@@ -18,6 +18,16 @@ import {
   Phone,
   Mail,
   MapPin,
+  Wallet,
+  Home,
+  Briefcase,
+  Landmark,
+  FileCheck,
+  Rocket,
+  FileText,
+  BadgeCheck,
+  Stamp,
+  ChevronDown,
 } from 'lucide-react';
 
 const iconMap = {
@@ -38,6 +48,16 @@ const iconMap = {
   phone: Phone,
   mail: Mail,
   'map-pin': MapPin,
+  wallet: Wallet,
+  home: Home,
+  briefcase: Briefcase,
+  landmark: Landmark,
+  'file-check': FileCheck,
+  rocket: Rocket,
+  'file-text': FileText,
+  'badge-check': BadgeCheck,
+  stamp: Stamp,
+  'chevron-down': ChevronDown,
 } as const;
 
 export type IconName = keyof typeof iconMap;
